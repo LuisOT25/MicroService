@@ -22,17 +22,15 @@ public class WeatherController {
     }
 
 
-    @GetMapping(value="test", params={"city","key"})
-    public Object getWeatherByName(@RequestParam("city") String city,
-                                   @RequestParam("key") String APIkey) throws JsonProcessingException {
-        Object temp = this.weatherService.findByName(restTemplate,city,APIkey);
+    @GetMapping(value="test", params={"city"})
+    public Object getWeatherByName(@RequestParam("city") String city) throws JsonProcessingException {
+        Object temp = this.weatherService.findByName(restTemplate,city);
         return temp;
     }
-    @GetMapping(value="test", params={"lat","lon","key"})
+    @GetMapping(value="test", params={"lat","lon"})
     public Object getWeatherByCoordinates(@RequestParam("lat")String latitud,
-                                          @RequestParam("lon")String longitud,
-                                          @RequestParam("key")String APIkey) throws JsonProcessingException {
-        Object temp = this.weatherService.findByCoordinates(restTemplate,latitud,longitud,APIkey);
+                                          @RequestParam("lon")String longitud) throws JsonProcessingException {
+        Object temp = this.weatherService.findByCoordinates(restTemplate,latitud,longitud);
         return temp;
     }
 
