@@ -1,0 +1,404 @@
+2023-02-20 22:06:15 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE Consultas(\000d\000a    id INT [*]IDENT\000d\000a)"; se esperaba "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE Consultas(\000d\000a    id INT [*]IDENT\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE Consultas(
+    id INT IDENT
+) [42001-214]
+2023-02-20 22:17:49 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE Consultas(\000d\000a    id int [*]IDENTITY(1,1) PRIMARY KEY\000d\000a)"; se esperaba "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE Consultas(\000d\000a    id int [*]IDENTITY(1,1) PRIMARY KEY\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE Consultas(
+    id int IDENTITY(1,1) PRIMARY KEY
+) [42001-214]
+2023-02-20 22:17:53 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE Consultas(\000d\000a    id int [*]IDENTITY(1,1) PRIMARY KEY\000d\000a)"; se esperaba "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE Consultas(\000d\000a    id int [*]IDENTITY(1,1) PRIMARY KEY\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE Consultas(
+    id int IDENTITY(1,1) PRIMARY KEY
+) [42001-214]
+2023-02-20 22:19:18 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE Consultas(\000d\000aid int [*]IDENTITY(1,1) PRIMARY KEY,\000d\000aname varchar(20)\000d\000a)"; se esperaba "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE Consultas(\000d\000aid int [*]IDENTITY(1,1) PRIMARY KEY,\000d\000aname varchar(20)\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE Consultas(
+id int IDENTITY(1,1) PRIMARY KEY,
+name varchar(20)
+) [42001-214]
+2023-02-20 22:21:08 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE Consultas(\000d\000a    Personid int [*]IDENTITY(1,1) PRIMARY KEY,\000d\000a    LastName varchar(255) NOT NULL,\000d\000a    FirstName varchar(255),\000d\000a    Age int\000d\000a)"; se esperaba "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE Consultas(\000d\000a    Personid int [*]IDENTITY(1,1) PRIMARY KEY,\000d\000a    LastName varchar(255) NOT NULL,\000d\000a    FirstName varchar(255),\000d\000a    Age int\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE Consultas(
+    Personid int IDENTITY(1,1) PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+) [42001-214]
+2023-02-20 22:27:28 jdbc[16]: null
+org.h2.message.DbException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-214]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:190)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:132)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 16 more
+2023-02-20 22:27:28 jdbc[16]: null
+org.h2.message.DbException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-214]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:190)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:132)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 16 more
+2023-02-20 22:33:49 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'' (REQUESTS: ""REQUEST_ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"
+Data conversion error converting "'' (REQUESTS: ""REQUEST_ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."REQUESTS"("REQUEST_ID","NOMBRE_CIUDAD","TEMPERATURA","MOMENTO")VALUES(?,?,?,?) [22018-214]
+2023-02-20 22:33:49 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'' (REQUESTS: ""REQUEST_ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"
+Data conversion error converting "'' (REQUESTS: ""REQUEST_ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."REQUESTS"("REQUEST_ID","NOMBRE_CIUDAD","TEMPERATURA","MOMENTO")VALUES(?,?,?,?) [22018-214]
+2023-02-20 22:34:39 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "DROP [*]REQUESTS"; se esperaba "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP [*]REQUESTS"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP REQUESTS [42001-214]
+2023-02-20 22:55:19 jdbc[26]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CONSULTAS" ya existe
+Table "CONSULTAS" already exists; SQL statement:
+CREATE TABLE Consultas(
+    Id INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+    Ciudad VARCHAR(100),
+    Temperatura DECIMAL(10,2),
+    Descripcion VARCHAR(100),
+    Fecha DATETIME
+) [42101-214]
+2023-02-20 22:56:25 jdbc[26]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'' (CONSULTAS: ""ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"
+Data conversion error converting "'' (CONSULTAS: ""ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."CONSULTAS"("ID","CIUDAD","TEMPERATURA","DESCRIPCION","FECHA")VALUES(?,?,?,?,?) [22018-214]
+2023-02-20 22:56:25 jdbc[26]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'' (CONSULTAS: ""ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"
+Data conversion error converting "'' (CONSULTAS: ""ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."CONSULTAS"("ID","CIUDAD","TEMPERATURA","DESCRIPCION","FECHA")VALUES(?,?,?,?,?) [22018-214]
+2023-02-20 22:56:58 jdbc[26]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "TIMESTAMP" "2000/09/25 09:25:30"
+Cannot parse "TIMESTAMP" constant "2000/09/25 09:25:30"; SQL statement:
+INSERT INTO "PUBLIC"."CONSULTAS"("ID","CIUDAD","TEMPERATURA","DESCRIPCION","FECHA")VALUES(?,?,?,?,?) [22007-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:506)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:88)
+	at org.h2.value.Value.convertToTimestamp(Value.java:1980)
+	at org.h2.value.Value.convertTo(Value.java:1153)
+	at org.h2.value.Value.convertForAssignTo(Value.java:1092)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:369)
+	at org.h2.table.Table.convertInsertRow(Table.java:926)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:167)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:209)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:169)
+	at org.h2.result.UpdatableRow.insertRow(UpdatableRow.java:334)
+	at org.h2.jdbc.JdbcResultSet.insertRow(JdbcResultSet.java:3335)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1159)
+	at org.h2.server.web.WebApp.process(WebApp.java:250)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.lang.NumberFormatException: For input string: "2000/0"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:665)
+	at java.base/java.lang.Integer.parseInt(Integer.java:781)
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:190)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:338)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:86)
+	... 54 more
+2023-02-20 22:56:58 jdbc[26]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "TIMESTAMP" "2000/09/25 09:25:30"
+Cannot parse "TIMESTAMP" constant "2000/09/25 09:25:30"; SQL statement:
+INSERT INTO "PUBLIC"."CONSULTAS"("ID","CIUDAD","TEMPERATURA","DESCRIPCION","FECHA")VALUES(?,?,?,?,?) [22007-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:506)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:88)
+	at org.h2.value.Value.convertToTimestamp(Value.java:1980)
+	at org.h2.value.Value.convertTo(Value.java:1153)
+	at org.h2.value.Value.convertForAssignTo(Value.java:1092)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:369)
+	at org.h2.table.Table.convertInsertRow(Table.java:926)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:167)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:209)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:169)
+	at org.h2.result.UpdatableRow.insertRow(UpdatableRow.java:334)
+	at org.h2.jdbc.JdbcResultSet.insertRow(JdbcResultSet.java:3335)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1159)
+	at org.h2.server.web.WebApp.process(WebApp.java:250)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.lang.NumberFormatException: For input string: "2000/0"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:665)
+	at java.base/java.lang.Integer.parseInt(Integer.java:781)
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:190)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:338)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:86)
+	... 54 more
+2023-02-20 23:01:11 jdbc[26]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "TIMESTAMP" "2000/09/25"
+Cannot parse "TIMESTAMP" constant "2000/09/25"; SQL statement:
+INSERT INTO "PUBLIC"."CONSULTAS"("ID","CIUDAD","TEMPERATURA","DESCRIPCION","FECHA")VALUES(?,?,?,?,?) [22007-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:506)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:88)
+	at org.h2.value.Value.convertToTimestamp(Value.java:1980)
+	at org.h2.value.Value.convertTo(Value.java:1153)
+	at org.h2.value.Value.convertForAssignTo(Value.java:1092)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:369)
+	at org.h2.table.Table.convertInsertRow(Table.java:926)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:167)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:209)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:169)
+	at org.h2.result.UpdatableRow.insertRow(UpdatableRow.java:334)
+	at org.h2.jdbc.JdbcResultSet.insertRow(JdbcResultSet.java:3335)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1159)
+	at org.h2.server.web.WebApp.process(WebApp.java:250)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.lang.NumberFormatException: For input string: "2000/0"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:665)
+	at java.base/java.lang.Integer.parseInt(Integer.java:781)
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:190)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:338)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:86)
+	... 54 more
+2023-02-20 23:01:11 jdbc[26]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "TIMESTAMP" "2000/09/25"
+Cannot parse "TIMESTAMP" constant "2000/09/25"; SQL statement:
+INSERT INTO "PUBLIC"."CONSULTAS"("ID","CIUDAD","TEMPERATURA","DESCRIPCION","FECHA")VALUES(?,?,?,?,?) [22007-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:506)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:88)
+	at org.h2.value.Value.convertToTimestamp(Value.java:1980)
+	at org.h2.value.Value.convertTo(Value.java:1153)
+	at org.h2.value.Value.convertForAssignTo(Value.java:1092)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:369)
+	at org.h2.table.Table.convertInsertRow(Table.java:926)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:167)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:209)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:169)
+	at org.h2.result.UpdatableRow.insertRow(UpdatableRow.java:334)
+	at org.h2.jdbc.JdbcResultSet.insertRow(JdbcResultSet.java:3335)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1159)
+	at org.h2.server.web.WebApp.process(WebApp.java:250)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.lang.NumberFormatException: For input string: "2000/0"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:665)
+	at java.base/java.lang.Integer.parseInt(Integer.java:781)
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:190)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:338)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:86)
+	... 54 more
+2023-02-20 23:02:52 jdbc[26]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'' (CONSULTAS: ""ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"
+Data conversion error converting "'' (CONSULTAS: ""ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."CONSULTAS"("ID","CIUDAD","TEMPERATURA","DESCRIPCION","FECHA")VALUES(?,?,?,?,?) [22018-214]
+2023-02-20 23:02:52 jdbc[26]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'' (CONSULTAS: ""ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"
+Data conversion error converting "'' (CONSULTAS: ""ID"" INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."CONSULTAS"("ID","CIUDAD","TEMPERATURA","DESCRIPCION","FECHA")VALUES(?,?,?,?,?) [22018-214]
+2023-02-21 00:34:25 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]SELEC * FROM CONSULTAS"; se esperaba "SAVEPOINT, SCRIPT, SHUTDOWN, SHOW"
+Syntax error in SQL statement "[*]SELEC * FROM CONSULTAS"; expected "SAVEPOINT, SCRIPT, SHUTDOWN, SHOW"; SQL statement:
+SELEC * FROM CONSULTAS [42001-214]

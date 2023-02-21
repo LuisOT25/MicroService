@@ -26,8 +26,8 @@ public class AutenticadorSpotify {
     String clientSecret;
 
     private Token authToken;
-    public Token getAccessToken() {
-        LOGGER.debug("getAccessToken()");
+    public Token validarToken() {
+        LOGGER.debug("validarToken()");
         if (this.authToken== null || this.authToken.isExpired()) {
             this.authToken = obtenerNuevoAccessToken();
         }
