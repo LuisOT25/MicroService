@@ -28,6 +28,7 @@ public class SpotifyService {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .body("");
         ResponseEntity<String> response = restTemplate.exchange(request, String.class);
+        if (!response.getStatusCode().is2xxSuccessful()){return null;}
         ObjectMapper mapper = new ObjectMapper();
         JsonNode items = mapper.readTree(response.getBody())
                 .path("tracks")

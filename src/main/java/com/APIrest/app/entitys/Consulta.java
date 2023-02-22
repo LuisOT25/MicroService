@@ -18,15 +18,18 @@ public class Consulta {
     public String descripcion;
     @Column(name = "fecha")
     public LocalDateTime fecha;
+    @Column(name = "recomendacion")
+    public String genero;
 
     public Consulta() {
     }
 
-    public Consulta(String cityName, double temp, String description, LocalDateTime fecha) {
+    public Consulta(String cityName, double temp, String description, LocalDateTime fecha,String genero) {
         this.cityName = cityName;
         this.temp = temp;
         this.descripcion = description;
         this.fecha = fecha;
+        this.genero= genero;
     }
 
     public Integer getId() {
@@ -68,4 +71,9 @@ public class Consulta {
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
+
+    public String getGenero() {return genero;}
+
+    public void setGenero(String genero) {this.genero = genero;}
+
 }

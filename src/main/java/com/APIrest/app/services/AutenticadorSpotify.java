@@ -47,7 +47,6 @@ public class AutenticadorSpotify {
                 .header(HttpHeaders.AUTHORIZATION, "Basic " + b64Codes)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .body(body);
-
         ResponseEntity<Token> response =restTemplate.postForEntity(authUrl,request, Token.class);
         return Token.registrarToken(Objects.requireNonNull(response.getBody()));
     }

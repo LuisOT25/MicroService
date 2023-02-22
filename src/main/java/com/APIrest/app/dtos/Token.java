@@ -7,8 +7,6 @@ import org.slf4j.LoggerFactory;
 import java.time.Instant;
 
 public class Token{
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(Token.class);
     @JsonProperty("access_token")
     private String accessToken;
     @JsonProperty("token_type")
@@ -19,7 +17,6 @@ public class Token{
     private Instant momentoExpiracion;
 
     public static Token registrarToken(Token token) {
-        LOGGER.trace("registrarToken({})", token.tokenType);
         Token nuevo = new Token();
         nuevo.accessToken = token.getAccessToken();
         nuevo.tokenType = token.getTokenType();
