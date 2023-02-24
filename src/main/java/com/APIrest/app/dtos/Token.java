@@ -40,7 +40,7 @@ public class Token{
         return tokenType;
     }
 
-    public boolean isExpired() {
+    public boolean doStillWork() {
         return this.momentoExpiracion.isAfter(Instant.now());
     }
 

@@ -1,5 +1,6 @@
 package com.APIrest.app.controllers;
 
+import com.APIrest.app.dtos.Token;
 import com.APIrest.app.entitys.Consulta;
 import com.APIrest.app.repositorys.RepoConsultas;
 import com.APIrest.app.services.AutenticadorSpotify;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver;
 
 import java.util.List;
 
@@ -24,7 +26,6 @@ public class Controller {
 
     private final RestTemplate restTemplate;
     private final WeatherService weatherService;
-
     private final RepoConsultas repoConsultas;
     private final SpotifyService spotifyService;
     private final AutenticadorSpotify autenticadorSpotify;
@@ -47,18 +48,18 @@ public class Controller {
             Consulta data = this.weatherService.findByName(restTemplate, city);
             return ResponseEntity.ok(getListTracks(data));
         }catch (RuntimeException runEx){
-            LOGGER.error("error",runEx);
+            LOGGER.error("error",runEx.getCause());
             return ResponseEntity.badRequest().body(runEx.getMessage());
         }
     }
 
     private Object getListTracks(Consulta data){
         try {
-            String token = this.autenticadorSpotify.validarToken().getAccessToken();
+            Token token = this.autenticadorSpotify.validarToken();
             this.repoConsultas.save(data);
-            return this.spotifyService.getTracks(data.getGenero(), token);
+            return this.spotifyService.getList(data.getGenero(),token);
         }catch (JsonProcessingException ex){
-            return null;
+            return ResponseEntity.badRequest().body("Hubo un error en el proceso");
         }
     }
 
@@ -72,4 +73,11 @@ public class Controller {
             return ResponseEntity.badRequest().body(runEx.getMessage());
         }
     }
+
+    @GetMapping("/token")
+    public String getToken(){
+        String token = this.autenticadorSpotify.validarToken().getAccessToken();
+        return token;
+    }
 }
+

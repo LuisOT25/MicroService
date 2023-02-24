@@ -10,6 +10,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import java.util.Base64;
+import java.util.List;
 import java.util.Objects;
 
 @Component
@@ -26,11 +27,14 @@ public class AutenticadorSpotify {
     String clientSecret;
 
     private Token authToken;
+
+
     public Token validarToken() {
-        LOGGER.debug("validarToken()");
-        if (this.authToken== null || this.authToken.isExpired()) {
+        LOGGER.error("validarToken()*****************");
+        if (this.authToken== null || !this.authToken.doStillWork()) {
             this.authToken = obtenerNuevoAccessToken();
         }
+        LOGGER.error(authToken.getAccessToken());
         return authToken;
     }
 

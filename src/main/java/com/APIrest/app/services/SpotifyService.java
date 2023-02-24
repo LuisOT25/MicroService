@@ -18,6 +18,38 @@ import java.util.List;
 public class SpotifyService {
     @Value("${spotify.api_base_url}")
     String spotiftyBaseUrl;
+
+    public List<String> classicalList;
+    public List<String> popList;
+    public List<String> rockList;
+    public List<String> partyList;
+
+    public List<String> getList(String genero, Token token)throws JsonProcessingException{
+            if (genero.equals("classical")) {
+                if (this.classicalList == null|| !token.doStillWork()) {
+                    this.classicalList = getTracks(genero, token.getAccessToken());
+                }
+                return classicalList;
+            } else if (genero.equals("pop")|| !token.doStillWork()) {
+                if (this.popList == null) {
+                    this.popList = getTracks(genero, token.getAccessToken());
+                }
+                return popList;
+            } else if (genero.equals("rock")|| !token.doStillWork()) {
+                if (this.rockList == null) {
+                    this.rockList = getTracks(genero, token.getAccessToken());
+                }
+                return rockList;
+            } else if (genero.equals("party")|| !token.doStillWork()) {
+                if (this.partyList == null) {
+                    this.partyList = getTracks(genero, token.getAccessToken());
+                }
+                return this.partyList;
+            }
+            return null;
+        }
+
+
     public List<String> getTracks (String genero, String token) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         String url = spotiftyBaseUrl+"/search?q=gendre:"+genero+"&type=track";

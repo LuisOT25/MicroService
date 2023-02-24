@@ -24,13 +24,13 @@ public class WeatherService {
 
     public Consulta findByName(RestTemplate restTemplate, String cityName){
         try{
-            LOGGER.debug("findByName");
+            LOGGER.error("findByName");
             String url = openWeatherBaseUrl + "q=" + cityName + "&units=metric&appid=" + apiKey;
             ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.getBody());
             if (!response.getStatusCode().is2xxSuccessful()) {
-                LOGGER.debug("not succesfuly");
+                LOGGER.error("not succesfuly");
                 String message = root.path("message").textValue();
                 throw new RuntimeException(message);
             }
@@ -40,10 +40,10 @@ public class WeatherService {
             String genero = tempToGender(temp);
             return new Consulta(cityName, temp, descripcion, fecha, genero);
         }catch (JsonProcessingException ex){
-            throw new RuntimeException("HOLA :)");
+            throw new RuntimeException("Hubo un  error en el proceso");
         }
     }
-    public Consulta findByCoordinates(RestTemplate restTemplate, String lat, String lon) throws RuntimeException {
+    public Consulta findByCoordinates(RestTemplate restTemplate, String lat, String lon){
         try {
             String url = openWeatherBaseUrl + "lat=" + lat + "&lon=" + lon + "&units=metric&appid=" + apiKey;
             ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
@@ -60,7 +60,7 @@ public class WeatherService {
             String genero = tempToGender(temp);
             return new Consulta(cityName, temp, descripcion, fecha, genero);
         }catch (JsonProcessingException ex){
-            throw new RuntimeException("HOLA BY COORDINATES");
+            throw new RuntimeException("Hubo un error en proceso");
         }
     }
     private String tempToGender (double temp){
