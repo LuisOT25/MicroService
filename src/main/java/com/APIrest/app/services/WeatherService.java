@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.time.LocalDateTime;
 
 @Service
@@ -20,17 +19,14 @@ public class WeatherService {
     @Value("${openWeather.api_key}")
     String apiKey;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WeatherService.class);
-
-    public Consulta findByName(RestTemplate restTemplate, String cityName){
+    public Consulta findByName(String cityName){
         try{
-            LOGGER.error("findByName");
+            RestTemplate restTemplate = new RestTemplate();
             String url = openWeatherBaseUrl + "q=" + cityName + "&units=metric&appid=" + apiKey;
             ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.getBody());
             if (!response.getStatusCode().is2xxSuccessful()) {
-                LOGGER.error("not succesfuly");
                 String message = root.path("message").textValue();
                 throw new RuntimeException(message);
             }
@@ -43,8 +39,9 @@ public class WeatherService {
             throw new RuntimeException("Hubo un  error en el proceso");
         }
     }
-    public Consulta findByCoordinates(RestTemplate restTemplate, String lat, String lon){
+    public Consulta findByCoordinates(String lat, String lon){
         try {
+            RestTemplate restTemplate = new RestTemplate();
             String url = openWeatherBaseUrl + "lat=" + lat + "&lon=" + lon + "&units=metric&appid=" + apiKey;
             ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
             ObjectMapper mapper = new ObjectMapper();

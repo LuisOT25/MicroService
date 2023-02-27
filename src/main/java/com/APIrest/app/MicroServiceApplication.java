@@ -13,9 +13,4 @@ public class MicroServiceApplication {
 		SpringApplication.run(MicroServiceApplication.class, args);
 	}
 
-	@Bean
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
-	}
-
 }

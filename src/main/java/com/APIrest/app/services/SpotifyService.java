@@ -1,7 +1,6 @@
 package com.APIrest.app.services;
 
 import com.APIrest.app.dtos.Token;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

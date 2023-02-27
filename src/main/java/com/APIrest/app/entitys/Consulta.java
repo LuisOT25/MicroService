@@ -21,8 +21,6 @@ public class Consulta {
     @Column(name = "recomendacion")
     public String genero;
 
-    public Consulta() {
-    }
 
     public Consulta(String cityName, double temp, String description, LocalDateTime fecha,String genero) {
         this.cityName = cityName;

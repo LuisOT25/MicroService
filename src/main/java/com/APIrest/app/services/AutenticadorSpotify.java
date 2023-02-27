@@ -10,12 +10,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import java.util.Base64;
-import java.util.List;
 import java.util.Objects;
 
 @Component
 public class AutenticadorSpotify {
-    private static final Logger LOGGER = LoggerFactory.getLogger(AutenticadorSpotify.class);
 
     @Value("${spotify.auth_url:https://accounts.spotify.com/api/token}")
     String authUrl;
@@ -30,11 +28,9 @@ public class AutenticadorSpotify {
 
 
     public Token validarToken() {
-        LOGGER.error("validarToken()*****************");
         if (this.authToken== null || !this.authToken.doStillWork()) {
             this.authToken = obtenerNuevoAccessToken();
         }
-        LOGGER.error(authToken.getAccessToken());
         return authToken;
     }
 
