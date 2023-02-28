@@ -1,9 +1,3 @@
-# Organizacion
-Este software esta distribuido por paquetes segun su funcion:
-servicios, repositorios, entidades, dtos y controladores 
-
-Dentro del paquete de servicios encontraremos los siguientes servicios:
-
 # Servicios:
 
 ## AutenticadorSpotify:
