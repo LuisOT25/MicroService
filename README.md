@@ -11,7 +11,6 @@ Documentacion de arquitectura: https://github.com/LuisOT25/MicroService/blob/mas
 * Git
 * Java 17.0
 
-###### by _Luis Eduardo Ocampon de la Torre_
 ## Organizacion:
 Este software esta distribuido por paquetes segun su funcion:
 servicios, repositorios, entidades, dtos y controladores 
@@ -29,3 +28,4 @@ una vez hecho el programa estara inicializado
 * despues de inicializarlo puede ver los endpoints en: http://localhost:8080/swagger-ui.html
 * tambien puede ver la base de datos en: http://localhost:8080/h2-console
 
+###### by _Luis Eduardo Ocampo de la Torre_
