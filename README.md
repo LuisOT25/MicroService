@@ -20,7 +20,7 @@ servicios, repositorios, entidades, dtos y controladores
 ### Como utilizar el programa
 
 * Abra una terminal y dirijase a la carpeta donde guardara el repositorio
-Para el siguiente paso debe terner una llave ssh
+Para el siguiente paso debe tener una llave ssh
 * Luego ejecute el siguiente comando: git clone git@github.com:LuisOT25/MicroService.git
 * una vez descargado el proyecto configure el archivo keys.properties con sus propias llaves de acceso para las API´s
 * Luego ejecute el siguiente comando: mvn package
