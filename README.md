@@ -22,6 +22,7 @@ servicios, repositorios, entidades, dtos y controladores
 
 Para el siguiente paso debe tener una llave ssh
 * Luego ejecute el siguiente comando: git clone git@github.com:LuisOT25/MicroService.git
+
 * una vez descargado el proyecto configure el archivo keys.properties con sus propias llaves de acceso para las API´s
 * Luego ejecute el siguiente comando: mvn package
 * Luego ejecute el siguiente comando: java -jar target/MicroService-0.0.1-SNAPSHOT.jar
