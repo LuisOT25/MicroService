@@ -4,16 +4,18 @@
 Este es un proyecto APIrest que implementa las API´s de spotify y OpenWeather
 para hacer recomendaciones de musica segun la temperatura de una locazion dada.
 
-Creado con java 17 en conjunto con el framework Springboot
-Documentacion de arquitectura: https://github.com/LuisOT25/MicroService/blob/master/src/main/java/Documentacion.md
+
 #### Herramientas necesarias para descargar, compilar y ejecutar el programa:
 * Maven
 * Git
 * Java 17.0
 
 ## Organizacion:
-Este software esta distribuido por paquetes segun su funcion:
-servicios, repositorios, entidades, dtos y controladores 
+Este software esta distribuido por paquetes segun su funcion: servicios, repositorios, entidades, dtos y controladores 
+
+Creado con java 17 en conjunto con el framework Springboot
+
+Documentacion de arquitectura: https://github.com/LuisOT25/MicroService/blob/master/src/main/java/Documentacion.md
 
 
 ### Como utilizar el programa
