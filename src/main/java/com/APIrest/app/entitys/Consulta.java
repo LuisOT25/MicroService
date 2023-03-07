@@ -20,14 +20,22 @@ public class Consulta {
     public LocalDateTime fecha;
     @Column(name = "recomendacion")
     public String genero;
+    @Column(name = "latitud")
+    public double lat;
+    @Column(name = "longitud")
+    public double lon;
 
 
-    public Consulta(String cityName, double temp, String description, LocalDateTime fecha,String genero) {
+
+
+    public Consulta(String cityName, double temp, String description, LocalDateTime fecha,String genero, double lat, double lon) {
         this.cityName = cityName;
         this.temp = temp;
         this.descripcion = description;
         this.fecha = fecha;
         this.genero= genero;
+        this.lat=lat;
+        this.lon=lon;
     }
 
     public Integer getId() {

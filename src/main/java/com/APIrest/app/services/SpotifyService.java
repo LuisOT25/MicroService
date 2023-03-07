@@ -1,6 +1,7 @@
 package com.APIrest.app.services;
 
 import com.APIrest.app.dtos.Token;
+import com.APIrest.app.dtos.Tracks;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +10,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.sound.midi.Track;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,12 +20,12 @@ public class SpotifyService {
     @Value("${spotify.api_base_url}")
     String spotiftyBaseUrl;
 
-    public List<String> classicalList;
-    public List<String> popList;
-    public List<String> rockList;
-    public List<String> partyList;
+    public List<Tracks> classicalList;
+    public List<Tracks> popList;
+    public List<Tracks> rockList;
+    public List<Tracks> partyList;
 
-    public List<String> getList(String genero, Token token)throws JsonProcessingException{
+    public List<Tracks> getList(String genero, Token token)throws JsonProcessingException{
             if (genero.equals("classical")) {
                 if (this.classicalList == null|| !token.doStillWork()) {
                     this.classicalList = getTracks(genero, token.getAccessToken());
@@ -49,7 +51,7 @@ public class SpotifyService {
         }
 
 
-    public List<String> getTracks (String genero, String token) throws JsonProcessingException {
+    public List<Tracks> getTracks (String genero, String token) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         String url = spotiftyBaseUrl+"/search?q=gendre:"+genero+"&type=track";
         RequestEntity<Object> request = RequestEntity
@@ -65,10 +67,11 @@ public class SpotifyService {
                 .path("tracks")
                 .path("items");
         Iterator<JsonNode> it = items.elements();
-        List<String> tracks = new ArrayList<>();
+        List<Tracks> tracks = new ArrayList<>();
         while (it.hasNext()) {
             JsonNode t = it.next();
-            tracks.add(t.path("name").asText());
+            tracks.add(new Tracks(t.path("name").asText(),
+                    t.path("artists").elements().next().path("name").asText()));
         }
         return tracks;
     }

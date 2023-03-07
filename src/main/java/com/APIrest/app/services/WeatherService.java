@@ -4,8 +4,6 @@ import com.APIrest.app.entitys.Consulta;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,10 +29,13 @@ public class WeatherService {
                 throw new RuntimeException(message);
             }
             double temp = root.path("main").path("temp").doubleValue();
+            double lat = root.path("coord").path("lat").doubleValue();
+            double lon = root.path("coord").path("lon").doubleValue();
             String descripcion = root.path("weather").elements().next().path("description").textValue();
             LocalDateTime fecha = LocalDateTime.now();
             String genero = tempToGender(temp);
-            return new Consulta(cityName, temp, descripcion, fecha, genero);
+
+            return new Consulta(cityName, temp, descripcion, fecha, genero,lat,lon);
         }catch (JsonProcessingException ex){
             throw new RuntimeException("Hubo un  error en el proceso");
         }
@@ -51,11 +52,11 @@ public class WeatherService {
                 throw new RuntimeException(message);
             }
             double temp = root.path("main").path("temp").doubleValue();
+            String name = root.path("name").textValue();
             String descripcion = root.path("weather").elements().next().path("description").textValue();
             LocalDateTime fecha = LocalDateTime.now();
-            String cityName = root.path("name").textValue();
             String genero = tempToGender(temp);
-            return new Consulta(cityName, temp, descripcion, fecha, genero);
+            return new Consulta(name, temp, descripcion, fecha, genero,Double.parseDouble(lat),Double.parseDouble(lon));
         }catch (JsonProcessingException ex){
             throw new RuntimeException("Hubo un error en proceso");
         }
