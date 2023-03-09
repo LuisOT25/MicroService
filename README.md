@@ -9,6 +9,7 @@ para hacer recomendaciones de musica segun la temperatura de una locazion dada.
 * Maven
 * Git
 * Java 17.0
+* Postgresql 15
 
 ## Organizacion:
 Este software esta distribuido por paquetes segun su funcion: servicios, repositorios, entidades, dtos y controladores 
@@ -19,6 +20,10 @@ Documentacion de arquitectura: https://github.com/LuisOT25/MicroService/blob/mas
 
 
 ### Como utilizar el programa
+
+* Necesitara tener postgresql instalado y crear una base de datos llamada apiconsultas
+* dentro de la base de datos crear una tabla llamada consultas con la siguiente estructura
+* >CREATE TABLE public.consultas (    id serial NOT NULL,    ciudad varchar(50) NOT NULL,    temperatura decimal NOT NULL,    descripcion varchar(50) NOT NULL,    recomendacion varchar(20) NOT NULL,    fecha timestamp without time zone NOT NULL,    latitud decimal NULL,    longitud decimal NULL,    CONSTRAINT consultas_pk PRIMARY KEY (id));
 
 * Abra una terminal y dirijase a la carpeta donde guardara el repositorio
 

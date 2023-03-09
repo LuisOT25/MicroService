@@ -26,9 +26,10 @@ public class Consulta {
     public double lon;
 
 
+    public Consulta() {
+    }
 
-
-    public Consulta(String cityName, double temp, String description, LocalDateTime fecha,String genero, double lat, double lon) {
+    public Consulta(String cityName, double temp, String description, LocalDateTime fecha, String genero, double lat, double lon) {
         this.cityName = cityName;
         this.temp = temp;
         this.descripcion = description;

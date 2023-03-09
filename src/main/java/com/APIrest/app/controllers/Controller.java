@@ -83,7 +83,14 @@ public class Controller {
                                           @RequestParam(value = "lon", required = false)String longitud){
         try{
             Consulta data = this.weatherService.findByCoordinates(latitud, longitud);
-            return ResponseEntity.ok(getListTracks(data));
+            String json = "{" +
+                    "\"ciudad\":{\"nombre\":"+data.cityName+",\"temperatura\":"+data.temp+"" +
+                    ",\"descripcion\":"+data.descripcion+",\"latitud\":"+data.lat+",\"longitud\":"+data.lon+"}," +
+                    "\"canciones\":"+Arrays.toString(new Object[]{getListTracks(data)}) +"}";
+            return ResponseEntity
+                    .ok()
+                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                    .body(json);
         }catch (RuntimeException runEx){
             return ResponseEntity.badRequest().body(runEx.getMessage());
         }
