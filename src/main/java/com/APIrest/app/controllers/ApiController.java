@@ -23,16 +23,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 
 @RestController
-public class Controller {
+public class ApiController {
 
     private final WeatherService weatherService;
     private final RepoConsultas repoConsultas;
     private final SpotifyService spotifyService;
     private final AutenticadorSpotify autenticadorSpotify;
 
-    public Controller(WeatherService weatherService,
-                      RepoConsultas repoConsultas, SpotifyService spotifyService,
-                      AutenticadorSpotify autenticadorSpotify) {
+    public ApiController(WeatherService weatherService,
+                         RepoConsultas repoConsultas, SpotifyService spotifyService,
+                         AutenticadorSpotify autenticadorSpotify) {
         this.weatherService = weatherService;
         this.repoConsultas = repoConsultas;
         this.spotifyService = spotifyService;
@@ -48,7 +48,7 @@ public class Controller {
                     content = @Content),
             @ApiResponse(responseCode = "I/O", description = "Error de conexion",
                     content = @Content)})
-    @GetMapping(value="API", params={"city"})
+    @GetMapping(value="api", params={"city"})
     public ResponseEntity<Object> requestByName(@RequestParam(value = "city", required = false) String city){
         try {
             Consulta data = this.weatherService.findByName(city);
@@ -78,14 +78,14 @@ public class Controller {
     @Operation(summary = "Request by name or coordinates")
     @Parameter(name = "lat",description = "latitud de la ciudad a buscar")
     @Parameter(name = "lon",description = "longitud de la ciudad a buscar")
-    @GetMapping(value="API", params={"lat","lon"})
+    @GetMapping(value="api", params={"lat","lon"})
     public ResponseEntity<Object> requestByCoordinates(@RequestParam(value = "lat", required = false)String latitud,
                                           @RequestParam(value = "lon", required = false)String longitud){
         try{
             Consulta data = this.weatherService.findByCoordinates(latitud, longitud);
             String json = "{" +
                     "\"ciudad\":{\"nombre\":"+data.cityName+",\"temperatura\":"+data.temp+"" +
-                    ",\"descripcion\":"+data.descripcion+",\"latitud\":"+data.lat+",\"longitud\":"+data.lon+"}," +
+                    ",\"descripcion\": "+data.descripcion+",\"latitud\":"+data.lat+",\"longitud\":"+data.lon+"}," +
                     "\"canciones\":"+Arrays.toString(new Object[]{getListTracks(data)}) +"}";
             return ResponseEntity
                     .ok()
