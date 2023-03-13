@@ -41,6 +41,8 @@ public class ApiController {
 
     @Operation(summary = "Request by name or coordinates ")
     @Parameter(name = "city",description = "Nombre de la ciudad a buscar")
+    @Parameter(name = "lat",description = "latitud de la ciudad a buscar")
+    @Parameter(name = "lon",description = "longitud de la ciudad a buscar")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ok",
                     content = { @Content(schema = @Schema(implementation = Tracks.class)) }),
@@ -75,9 +77,6 @@ public class ApiController {
         }
     }
 
-    @Operation(summary = "Request by name or coordinates")
-    @Parameter(name = "lat",description = "latitud de la ciudad a buscar")
-    @Parameter(name = "lon",description = "longitud de la ciudad a buscar")
     @GetMapping(value="api", params={"lat","lon"})
     public ResponseEntity<Object> requestByCoordinates(@RequestParam(value = "lat", required = false)String latitud,
                                           @RequestParam(value = "lon", required = false)String longitud){
