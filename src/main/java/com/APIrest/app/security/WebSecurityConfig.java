@@ -25,6 +25,7 @@ public class WebSecurityConfig {
                 .antMatchers(HttpMethod.GET,"/swagger-ui/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/login").permitAll()
                 .antMatchers(HttpMethod.PUT,"/api/token").permitAll()
+                .antMatchers(HttpMethod.GET,"/api").permitAll()
                 .anyRequest().authenticated();
         return httpSec.build();
     }
